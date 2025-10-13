@@ -1,8 +1,10 @@
-package com.alperenavci.spring_data_jpa;
+package com.alperenavci.starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+@EntityScan(basePackages = {"com.alperenavci"})
 @SpringBootApplication
 public class SpringDataJpaApplication {
 
