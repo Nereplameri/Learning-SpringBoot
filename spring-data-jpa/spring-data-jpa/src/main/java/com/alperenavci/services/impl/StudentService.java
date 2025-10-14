@@ -1,4 +1,4 @@
-package com.alperenavci.service.impl;
+package com.alperenavci.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +12,10 @@ import com.alperenavci.dto.DtoStudent;
 import com.alperenavci.dto.DtoStudentIU;
 import com.alperenavci.entites.Student;
 import com.alperenavci.repository.StudentRepository;
-import com.alperenavci.service.IStudentService;
+import com.alperenavci.services.IStudentService;
 
 @Service
-public class StudentServiceImpl implements IStudentService{
+public class StudentService implements IStudentService{
 	
 	@Autowired
 	private StudentRepository studentRepository;

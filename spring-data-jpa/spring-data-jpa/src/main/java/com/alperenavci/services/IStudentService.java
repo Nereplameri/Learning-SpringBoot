@@ -1,4 +1,4 @@
-package com.alperenavci.service;
+package com.alperenavci.services;
 
 import java.util.List;
 

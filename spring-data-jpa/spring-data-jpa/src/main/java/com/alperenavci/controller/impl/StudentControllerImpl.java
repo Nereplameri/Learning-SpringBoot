@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alperenavci.controller.IStudentController;
 import com.alperenavci.dto.DtoStudent;
 import com.alperenavci.dto.DtoStudentIU;
-import com.alperenavci.service.IStudentService;
+import com.alperenavci.services.IStudentService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/rest/api/student")
@@ -26,7 +28,7 @@ public class StudentControllerImpl implements IStudentController{
 	
 	@PostMapping(path = "/save")
 	@Override
-	public DtoStudent saveStudent(@RequestBody DtoStudentIU dtoStudentIU) {
+	public DtoStudent saveStudent(@RequestBody @Valid DtoStudentIU dtoStudentIU) {
 		return studentService.saveStudent(dtoStudentIU);
 	}
 
