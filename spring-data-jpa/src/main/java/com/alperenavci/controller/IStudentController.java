@@ -2,12 +2,13 @@ package com.alperenavci.controller;
 
 import java.util.List;
 
-import com.alperenavci.entites.Student;
+import com.alperenavci.dto.DtoStudent;
+import com.alperenavci.dto.DtoStudentIU;
 
 public interface IStudentController {
-	public Student saveStudent(Student student);
-	public List<Student> getAllStudents();
-	public Student getStudentById(Integer id);
+	public DtoStudent saveStudent(DtoStudentIU dtoStudentIU);
+	public List<DtoStudent> getAllStudents();
+	public DtoStudent getStudentById(Integer id);
 	public void deleteStudent(Integer id);
-	public Student updateStudent(Integer id, Student updateStudent);
+	public DtoStudent updateStudent(Integer id, DtoStudentIU updateStudent);
 }

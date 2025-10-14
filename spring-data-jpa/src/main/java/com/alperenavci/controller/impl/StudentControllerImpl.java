@@ -13,32 +13,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alperenavci.controller.IStudentController;
-import com.alperenavci.entites.Student;
+import com.alperenavci.dto.DtoStudent;
+import com.alperenavci.dto.DtoStudentIU;
 import com.alperenavci.service.IStudentService;
 
 @RestController
 @RequestMapping("/rest/api/student")
 public class StudentControllerImpl implements IStudentController{
 	
-	//Enjekte ederken Interface işaretçisi kullanılır.
 	@Autowired
 	private IStudentService studentService;
 	
 	@PostMapping(path = "/save")
 	@Override
-	public Student saveStudent(@RequestBody Student student) {
-		return studentService.saveStudent(student);
-	}
-	
-	@GetMapping(path = "/list")
-	@Override
-	public List<Student> getAllStudents() {
-		return studentService.getAllStudents();
+	public DtoStudent saveStudent(@RequestBody DtoStudentIU dtoStudentIU) {
+		return studentService.saveStudent(dtoStudentIU);
 	}
 
+	@GetMapping(path = "/list")
+	@Override
+	public List<DtoStudent> getAllStudents() {
+		return studentService.getAllStudents();
+	}
+	
 	@GetMapping(path = "/list/{id}")
 	@Override
-	public Student getStudentById(@PathVariable(name = "id") Integer id) {
+	public DtoStudent getStudentById(@PathVariable(name = "id") Integer id) {
 		return studentService.getStudentById(id);
 	}
 	
@@ -50,7 +50,8 @@ public class StudentControllerImpl implements IStudentController{
 	
 	@PutMapping(path = "/update/{id}")
 	@Override
-	public Student updateStudent(@PathVariable(name = "id") Integer id, @RequestBody Student updateStudent) {
+	public DtoStudent updateStudent(@PathVariable(name = "id") Integer id, @RequestBody DtoStudentIU updateStudent) {
 		return studentService.updateStudent(id, updateStudent);
 	}
+	
 }

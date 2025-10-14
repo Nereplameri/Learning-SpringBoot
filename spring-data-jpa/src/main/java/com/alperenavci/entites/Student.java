@@ -1,6 +1,6 @@
 package com.alperenavci.entites;
 
-import java.sql.Date;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
