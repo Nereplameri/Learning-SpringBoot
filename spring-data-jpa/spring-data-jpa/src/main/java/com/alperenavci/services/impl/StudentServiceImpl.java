@@ -15,7 +15,7 @@ import com.alperenavci.repository.StudentRepository;
 import com.alperenavci.services.IStudentService;
 
 @Service
-public class StudentService implements IStudentService{
+public class StudentServiceImpl implements IStudentService{
 	
 	@Autowired
 	private StudentRepository studentRepository;

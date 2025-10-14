@@ -3,8 +3,8 @@ package com.alperenavci.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.alperenavci.entites.Student;
+import com.alperenavci.entites.Customer;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Integer>{
+public interface CustomerRepository extends JpaRepository<Customer, Long>{
 }
