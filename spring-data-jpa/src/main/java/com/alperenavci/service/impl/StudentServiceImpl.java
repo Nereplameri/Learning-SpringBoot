@@ -1,6 +1,7 @@
 package com.alperenavci.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,14 @@ public class StudentServiceImpl implements IStudentService{
 		return studentList;
 	}
 	
+	@Override
+	public Student getStudentById(Integer id) {
+		Optional<Student> optional = studentRepository.findById(id);
+		if (optional.isPresent()) {
+			return optional.get();
+		}
+		return null;
+	}
 
 	
 }

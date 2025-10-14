@@ -7,4 +7,5 @@ import com.alperenavci.entites.Student;
 public interface IStudentController {
 	public Student saveStudent(Student student);
 	public List<Student> getAllStudents();
+	public Student getStudentById(Integer id);
 }
