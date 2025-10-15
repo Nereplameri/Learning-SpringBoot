@@ -8,8 +8,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alperenavci.dto.DtoCourse;
 import com.alperenavci.dto.DtoStudent;
 import com.alperenavci.dto.DtoStudentIU;
+import com.alperenavci.entites.Course;
 import com.alperenavci.entites.Student;
 import com.alperenavci.repository.StudentRepository;
 import com.alperenavci.services.IStudentService;
@@ -47,14 +49,25 @@ public class StudentServiceImpl implements IStudentService{
 
 	@Override
 	public DtoStudent getStudentById(Integer id) {
-		DtoStudent dto = new DtoStudent(); 
+		DtoStudent dtoStudent = new DtoStudent(); 
 		Optional<Student> optional = studentRepository.findById(id);
 		
 		if (optional.isPresent()) {
 			Student dbStudent = optional.get();
-			BeanUtils.copyProperties(dbStudent, dto);
+			BeanUtils.copyProperties(dbStudent, dtoStudent);
+			
+			if (dbStudent.getCourses() != null && !dbStudent.getCourses().isEmpty()) {
+				for (Course course : dbStudent.getCourses()) {
+					DtoCourse dtoCourse = new DtoCourse();
+					BeanUtils.copyProperties(course, dtoCourse);
+					
+					dtoStudent.getCourses().add(dtoCourse);
+					
+				}
+			}
+			
 		}
-		return dto;
+		return dtoStudent;
 	}
 
 	@Override

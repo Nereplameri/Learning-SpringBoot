@@ -1,6 +1,7 @@
 package com.alperenavci.entites;
 
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -13,6 +14,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 @Table(name = "student")
@@ -34,5 +38,11 @@ public class Student {
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "birth_of_date", nullable = true)
 	private Date birthOfDate;
+	
+	@ManyToMany
+	@JoinTable(name = "student_course",
+	joinColumns = @JoinColumn(name="student_id"),
+	inverseJoinColumns = @JoinColumn(name="course_id"))
+	private List<Course> courses;
 	
 }
